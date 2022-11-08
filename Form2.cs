@@ -13,6 +13,7 @@ namespace _123
 {
     public partial class Form2 : Form
     {
+        public string directory;
         public string name;
         public Form2()
         {
@@ -27,14 +28,18 @@ namespace _123
 
         private void button2_Click(object sender, EventArgs e)
         {
+            directory = "";
             label2.Text = "";
             string name1="*.";
             name1 += textBox1.Text;
             name1 += "*";
             //name = textBox1.Text;
-            string directory = @"D:\";
+
+            directory = textBox2.Text;
+            
+            //string directory = @"D:\";
             try
-            {
+            {MessageBox.Show(directory);
                 foreach (var fi in new DirectoryInfo(directory).EnumerateFiles(name1, SearchOption.AllDirectories))
                 {
                     //MessageBox.Show(fi.FullName);
